@@ -2,6 +2,7 @@ package me.cristiangomez.boladecristal;
 
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +17,7 @@ public class MainActivity extends Activity {
 	private TextView mResponseLabel;
 	private Button mGetResponseButton;
 	private ImageView mCrystallBallImage;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class MainActivity extends Activity {
 				String response = "";
 				response = mCrystalBall.getAnswer();
 				mResponseLabel.setText(response);
+				playSound();
 				animateCrystalBall();
 				animateAnswer();
 			}
@@ -53,6 +55,19 @@ public class MainActivity extends Activity {
 		fadeInAnimation.setDuration(1500);
 		fadeInAnimation.setFillAfter(true);
 		mResponseLabel.setAnimation(fadeInAnimation);
+	}
+
+	private void playSound() {
+		MediaPlayer player = MediaPlayer.create(this, R.raw.crystal_ball);
+		player.start();
+		player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+			@Override
+			public void onCompletion(MediaPlayer mp) {
+				mp.release();
+
+			}
+		});
 	}
 
 	@Override
