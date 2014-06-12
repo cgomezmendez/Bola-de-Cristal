@@ -13,8 +13,6 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.crystalball.ShakeDetector;
-
 public class MainActivity extends Activity {
 	public static final String TAG = MainActivity.class.getSimpleName();
 	private CrystalBall mCrystalBall = new CrystalBall();

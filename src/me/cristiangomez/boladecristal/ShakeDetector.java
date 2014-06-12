@@ -1,4 +1,4 @@
-package com.example.crystalball;
+package me.cristiangomez.boladecristal;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
