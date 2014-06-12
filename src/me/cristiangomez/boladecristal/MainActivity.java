@@ -6,43 +6,53 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private CrystalBall mCrystalBall = new CrystalBall();
-
+	private TextView mResponseLabel;
+	private Button mGetResponseButton;
+	private ImageView mCrystallBallImage;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		// Declare View variables and assign them the views from layout
-		final TextView responseLabel = (TextView) findViewById(R.id.responseLabel);
-		final Button getResponseButton = (Button) findViewById(R.id.getResponseButton);
-		getResponseButton.setOnClickListener(new View.OnClickListener() {
-
+		mCrystallBallImage = (ImageView) findViewById(R.id.imageView1);
+		mResponseLabel = (TextView) findViewById(R.id.responseLabel);
+		mGetResponseButton = (Button) findViewById(R.id.getResponseButton);
+		mGetResponseButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View getResponseButtonView) {
 				// The button was clicked so we updated the responseLabel with
 				// an response
 				String response = "";
 				response = mCrystalBall.getAnswer();
-				responseLabel.setText(response);
+				mResponseLabel.setText(response);
 				animateCrystalBall();
+				animateAnswer();
 			}
 		});
 	}
-	
+
 	private void animateCrystalBall() {
-		ImageView crystallBallImage = (ImageView) findViewById(R.id.imageView1);
-		crystallBallImage.setImageResource(R.drawable.ball_animation);
-		AnimationDrawable ballAnimation =  (AnimationDrawable) crystallBallImage.getDrawable();
-		if (ballAnimation.isRunning()){
+		mCrystallBallImage.setImageResource(R.drawable.ball_animation);
+		AnimationDrawable ballAnimation = (AnimationDrawable) mCrystallBallImage
+				.getDrawable();
+		if (ballAnimation.isRunning()) {
 			ballAnimation.stop();
 		}
 		ballAnimation.start();
+	}
+
+	private void animateAnswer() {
+		AlphaAnimation fadeInAnimation = new AlphaAnimation(0, 1);
+		fadeInAnimation.setDuration(1500);
+		fadeInAnimation.setFillAfter(true);
+		mResponseLabel.setAnimation(fadeInAnimation);
 	}
 
 	@Override
