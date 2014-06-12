@@ -1,11 +1,13 @@
 package me.cristiangomez.boladecristal;
 
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -28,8 +30,16 @@ public class MainActivity extends Activity {
 				String response = "";
 				response = mCrystalBall.getAnswer();
 				responseLabel.setText(response);
+				animateCrystalBall();
 			}
 		});
+	}
+	
+	private void animateCrystalBall() {
+		ImageView crystallBallImage = (ImageView) findViewById(R.id.imageView1);
+		crystallBallImage.setImageResource(R.drawable.ball_animation);
+		AnimationDrawable ballAnimation =  (AnimationDrawable) crystallBallImage.getDrawable();
+		ballAnimation.start();
 	}
 
 	@Override
