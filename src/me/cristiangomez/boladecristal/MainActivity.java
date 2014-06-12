@@ -39,6 +39,9 @@ public class MainActivity extends Activity {
 		ImageView crystallBallImage = (ImageView) findViewById(R.id.imageView1);
 		crystallBallImage.setImageResource(R.drawable.ball_animation);
 		AnimationDrawable ballAnimation =  (AnimationDrawable) crystallBallImage.getDrawable();
+		if (ballAnimation.isRunning()){
+			ballAnimation.stop();
+		}
 		ballAnimation.start();
 	}
 
