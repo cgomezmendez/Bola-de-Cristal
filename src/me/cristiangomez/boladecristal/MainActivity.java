@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.AlphaAnimation;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.example.crystalball.ShakeDetector;
 
 public class MainActivity extends Activity {
+	public static final String TAG = MainActivity.class.getSimpleName();
 	private CrystalBall mCrystalBall = new CrystalBall();
 	private TextView mResponseLabel;
 	private ImageView mCrystallBallImage;
@@ -25,6 +27,9 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (BuildConfig.DEBUG){
+			Log.d(TAG,"App is being created");
+		}
 		setContentView(R.layout.activity_main);
 		mCrystallBallImage = (ImageView) findViewById(R.id.imageView1);
 		mResponseLabel = (TextView) findViewById(R.id.responseLabel);
