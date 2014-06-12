@@ -19,14 +19,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:shadowColor="#ffffff"
+        android:shadowRadius="10"
+        android:textColor="@android:color/white"
+        android:textSize="32sp" />
 
     <Button
         android:id="@+id/getResponseButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/responseLabel"
-        android:layout_centerHorizontal="true"
-        android:text="¡Iluminame!" />
+        android:layout_alignParentBottom="true"
+        android:text="¡Iluminame!"
+        android:textColor="#3f0f7f"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif" />
 
 </RelativeLayout>
