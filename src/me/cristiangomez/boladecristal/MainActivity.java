@@ -1,31 +1,21 @@
 package me.cristiangomez.boladecristal;
 
-import java.util.Random;
-
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
-	private CristalBall cristalBall;
+	private CrystalBall mCrystalBall = new CrystalBall();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (cristalBall==null){
-        	cristalBall = new CristalBall();
-        }
         setContentView(R.layout.activity_main);
         
-        //Declare View variables and assing  them the views from layout
+        //Declare View variables and assign  them the views from layout
         final TextView responseLabel = (TextView) findViewById(R.id.responseLabel);
         final Button getResponseButton = (Button) findViewById(R.id.getResponseButton);
         getResponseButton.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View getResponseButtonView) {
 				// The button was clicked so we updated the responseLabel with an response
 				String response = "";
-				response = cristalBall.getAnswer();
+				response = mCrystalBall.getAnswer();
 				responseLabel.setText(response);
 			}
 		});

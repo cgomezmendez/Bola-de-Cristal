@@ -7,6 +7,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/ball01" />
+
     <TextView
         android:id="@+id/responseLabel"
         android:layout_width="wrap_content"
@@ -18,7 +25,7 @@
         android:id="@+id/getResponseButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/responseLabel"
         android:layout_centerHorizontal="true"
         android:text="¡Iluminame!" />
 
