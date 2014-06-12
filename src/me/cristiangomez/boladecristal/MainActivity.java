@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
@@ -17,6 +19,19 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        //Declare View variables and assing  them the views from layout
+        final TextView responseLabel = (TextView) findViewById(R.id.responseLabel);
+        final Button getResponseButton = (Button) findViewById(R.id.getResponseButton);
+        getResponseButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View getResponseButtonView) {
+				// The button was clicked so we updated the responseLabel with an response
+				String text = "SI";
+				responseLabel.setText(text);
+			}
+		});
     }
 
 
