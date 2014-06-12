@@ -16,10 +16,13 @@ import android.widget.TextView;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
-
+	private CristalBall cristalBall;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (cristalBall==null){
+        	cristalBall = new CristalBall();
+        }
         setContentView(R.layout.activity_main);
         
         //Declare View variables and assing  them the views from layout
@@ -31,13 +34,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View getResponseButtonView) {
 				// The button was clicked so we updated the responseLabel with an response
 				String response = "";
-				
-				//Randomly select one of three answers: Yes, No, or Maybe
-				Random randomGenerator = new Random();
-				int randomNumber = randomGenerator.nextInt(3);
-				String[] answersArray = {"Si","No","Talvez"};
-				response = answersArray[randomNumber];
-				//Update the label with a dinamic answer
+				response = cristalBall.getAnswer();
 				responseLabel.setText(response);
 			}
 		});
