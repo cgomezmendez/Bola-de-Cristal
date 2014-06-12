@@ -42,6 +42,19 @@ public class MainActivity extends Activity {
 
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		mSensorManager.unregisterListener(mShakeDetector);
+	}
+
 	private void animateCrystalBall() {
 		mCrystallBallImage.setImageResource(R.drawable.ball_animation);
 		AnimationDrawable ballAnimation = (AnimationDrawable) mCrystallBallImage
