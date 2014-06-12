@@ -1,5 +1,7 @@
 package me.cristiangomez.boladecristal;
 
+import java.util.Random;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -28,8 +30,15 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View getResponseButtonView) {
 				// The button was clicked so we updated the responseLabel with an response
-				String text = "SI";
-				responseLabel.setText(text);
+				String response = "";
+				
+				//Randomly select one of three answers: Yes, No, or Maybe
+				Random randomGenerator = new Random();
+				int randomNumber = randomGenerator.nextInt(3);
+				String[] answersArray = {"Si","No","Talvez"};
+				response = answersArray[randomNumber];
+				//Update the label with a dinamic answer
+				responseLabel.setText(response);
 			}
 		});
     }
