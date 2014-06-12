@@ -10,17 +10,6 @@
         android:layout_marginTop="17dp"
         android:src="@drawable/ball01" />
 
-    <Button
-        android:id="@+id/getResponseButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="¡Iluminame!"
-        android:textColor="#3f0f7f"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        android:typeface="serif" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
